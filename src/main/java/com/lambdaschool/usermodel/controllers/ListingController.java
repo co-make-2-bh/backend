@@ -25,7 +25,7 @@ public class ListingController {
         List<Listing> myList = listingService.findAll();
         return new ResponseEntity<>(myList, HttpStatus.OK);
     }
-    @GetMapping(value = "/list/id/{listingid}", produces = "application/json")
+    @GetMapping(value = "/listing/{listingid}", produces = "application/json")
     public ResponseEntity<?> findListingById(@PathVariable long listingid){
         Listing l = listingService.findListingById(listingid);
         return new ResponseEntity<>(l,HttpStatus.OK);
@@ -43,7 +43,7 @@ public class ListingController {
         listingService.deleteAll();
         return new ResponseEntity<>(HttpStatus.OK);
     }
-    @PostMapping(value = "/user",
+    @PostMapping(value = "/listing",
             consumes = "application/json")
     public ResponseEntity<?> addNewListing(
             @Valid
